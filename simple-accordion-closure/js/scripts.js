@@ -1,4 +1,4 @@
-var accordion = function (accordionBtnClass, accordionModuleClass) {
+var accordion = function ({accordionBtnClass, accordionModuleClass}) {
 
   // Variables
   var accordionBtns = document.getElementsByClassName(accordionBtnClass);
@@ -24,4 +24,4 @@ var accordion = function (accordionBtnClass, accordionModuleClass) {
 
 };
 
-accordion('accordion__btn', 'accordion__module');
+accordion({accordionBtnClass: 'accordion__btn', accordionModuleClass:'accordion__module'});
