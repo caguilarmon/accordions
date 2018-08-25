@@ -19,7 +19,7 @@ var accordion = function (settings) {
         accordionBtns[i].addEventListener('click', moduleHandlerNoAnimation.bind(this, i), false);
         break;
       default:
-        console.log('Please select an animation type')
+        console.log('Please select an animation type');
     }
   }
 
@@ -31,7 +31,7 @@ var accordion = function (settings) {
     // Expand Module    
     if (moduleMaxHeight === 0){ 
       accordionModule[i].style.maxHeight = accordionModule[i].scrollHeight + 'px';
-      accordionModule[i].addEventListener("transitionend", setOverflow, false);
+      accordionModule[i].addEventListener('transitionend', setOverflow, false);
 
       // Set overflow to auto at the end of the expand, to add a scroll if the window is resized
       function setOverflow() {
@@ -48,7 +48,7 @@ var accordion = function (settings) {
     }
 
     function getModuleMaxHeight(moduleIndex) {
-      return parseFloat(window.getComputedStyle(accordionModule[moduleIndex], null).getPropertyValue('max-height'))
+      return parseFloat(window.getComputedStyle(accordionModule[moduleIndex], null).getPropertyValue('max-height'));
     }
 
   }
@@ -64,7 +64,7 @@ var accordion = function (settings) {
 
   // -------------------- Helper Functions -------------------------------- //
   function addClass(elem, accordionClass) {
-    elem.classList.add(accordionClass)
+    elem.classList.add(accordionClass);
   }
 
 };
