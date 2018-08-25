@@ -50,9 +50,6 @@ h3 {
   padding: 0 20px;
   text-align: left;
   background-color: #ccc;
-  /*max-height: 0;*/
-  /*overflow: hidden;*/
-  /*transition: max-height 0.4s ease-in-out;*/
 }
 
 .accordion__p--padding-bottom {
@@ -63,18 +60,14 @@ h3 {
   padding-top: 10px;
 }
 
+/* -------------------- Animated Accordion -------------------------------- */
 .accordion__module--animated {
-  /*padding: 0 20px;*/
-  /*text-align: left;*/
-  /*background-color: #ccc;*/
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-in-out;
 }
 
+/* -------------------- No animation Accordion -------------------------------- */
 .accordion__module--no-animation {
-  /*padding: 10px 20px;*/
-  /*text-align: left;*/
-  /*background-color: #ccc;*/
   display: none;
 }
