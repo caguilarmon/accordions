@@ -1,8 +1,8 @@
-(function accordionHandler() {
+var accordion = function (settings) {
 
   // Variables
-  var accordionBtns = document.getElementsByClassName('accordion__btn');
-  var accordionModule = document.getElementsByClassName('accordion__module');
+  var accordionBtns = document.getElementsByClassName(settings.accordion__btn);
+  var accordionModule = document.getElementsByClassName(settings.accordion__module);
 
   for (var i = 0; i < accordionBtns.length; i++) {
       accordionBtns[i].addEventListener('click', moduleHandler.bind(this, i), false);
@@ -16,4 +16,6 @@
     }
   }
 
-})();
+};
+
+accordion({accordion__btn: 'accordion__btn', accordion__module: 'accordion__module'});
