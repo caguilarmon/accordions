@@ -1,0 +1,80 @@
+/* ---------------- Tags ---------------- */
+body {
+  background-color: #999;
+  font: 13px/20px Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 14px;
+}
+
+/* ---------------- Classes ---------------- */
+.accordion {
+  width: 90%;
+  border: 1px solid #555;
+  margin: 0 auto;
+}
+
+.accordion__btn {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  font-size: 16px;
+  color: #2F2F2F;
+  cursor: pointer;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 2px solid #555;
+  outline: none;
+  transition-duration: 0.4s;
+  background-color: #F73855;
+}
+
+.accordion__btn:hover {
+  background-color: #F96F40;
+  color: #444;
+}
+
+.accordion__btn:active {
+  background-color: #E3653B;
+  color: #222;
+}
+
+.accordion__module {
+  padding: 0 20px;
+  text-align: left;
+  background-color: #ccc;
+  /*max-height: 0;*/
+  /*overflow: hidden;*/
+  /*transition: max-height 0.4s ease-in-out;*/
+}
+
+.accordion__p--padding-bottom {
+  padding-bottom: 10px;
+}
+
+.accordion__header--padding-top {
+  padding-top: 10px;
+}
+
+.accordion__module--animated {
+  /*padding: 0 20px;*/
+  /*text-align: left;*/
+  /*background-color: #ccc;*/
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.accordion__module--no-animation {
+  /*padding: 10px 20px;*/
+  /*text-align: left;*/
+  /*background-color: #ccc;*/
+  display: none;
+}
