@@ -1,8 +1,8 @@
-(function accordionHandler() {
+var accordion = function (settings) {
 
   // Variables
-  var accordionBtns = document.getElementsByClassName('accordion__btn');
-  var accordionModule = document.getElementsByClassName('accordion__module');
+  var accordionBtns = document.getElementsByClassName(settings.accordion__btn);
+  var accordionModule = document.getElementsByClassName(settings.accordion__module);
 
   for (var i = 0; i < accordionBtns.length; i++) {
       accordionBtns[i].addEventListener('click', moduleHandler.bind(this, i), false);
@@ -24,17 +24,11 @@
         }
       }
 
-      // console.log(accordionModule[i].style.maxHeight);
-      // console.log(window.getComputedStyle(accordionModule[i], null).getPropertyValue('max-height'));
-
-      // Collapse Module
+    // Collapse Module
     } else {
       accordionModule[i].style.maxHeight = 0;
       accordionModule[i].style.overflow = 'hidden';
 
-      // console.log('else');
-      // console.log(accordionModule[i].style.maxHeight);
-      // console.log(window.getComputedStyle(accordionModule[i], null).getPropertyValue('max-height'));
     }
   }
 
@@ -42,4 +36,7 @@
     return parseFloat(window.getComputedStyle(accordionModule[moduleIndex], null).getPropertyValue('max-height'))
   }
 
-})();
+};
+
+accordion({accordion__btn: 'accordion__btn', accordion__module: 'accordion__module'});
+
