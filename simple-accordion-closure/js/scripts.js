@@ -1,8 +1,8 @@
-var accordion = function ({accordionBtnClass, accordionModuleClass}) {
+var accordion = function (settings) {
 
   // Variables
-  var accordionBtns = document.getElementsByClassName(accordionBtnClass);
-  var accordionModule = document.getElementsByClassName(accordionModuleClass);
+  var accordionBtns = document.getElementsByClassName(settings.accordion__btn);
+  var accordionModule = document.getElementsByClassName(settings.accordion__module);
 
   for (var i = 0; i < accordionBtns.length; i++) {
       accordionBtns[i].addEventListener('click', moduleHandlerCallback(i), false);
@@ -24,4 +24,4 @@ var accordion = function ({accordionBtnClass, accordionModuleClass}) {
 
 };
 
-accordion({accordionBtnClass: 'accordion__btn', accordionModuleClass:'accordion__module'});
+accordion({accordion__btn: 'accordion__btn', accordion__module: 'accordion__module'});
