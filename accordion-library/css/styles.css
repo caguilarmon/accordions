@@ -16,7 +16,7 @@ h3 {
 /* ---------------- Classes ---------------- */
 .accordion {
   width: 90%;
-  border: 1px solid #555;
+  border: 2px solid #555;
   margin: 0 auto;
 }
 
@@ -34,6 +34,10 @@ h3 {
   outline: none;
   transition-duration: 0.4s;
   background-color: #F73855;
+}
+
+.accordion__btn:nth-last-child(2) {
+  border-bottom: 0px solid #555;
 }
 
 .accordion__btn:hover {
