@@ -1,30 +1,26 @@
 var accordion = function (settings) {
 
-  // Variables
+  // --------------------  Variables -------------------------------- //
   var accordionBtns = document.getElementsByClassName(settings.accordion__btn);
   var accordionModules = document.getElementsByClassName(settings.accordion__module);
 
-  for (var i = 0; i < accordionBtns.length; i++) {
-      typeHandler(i);
+  // -------------------- Helper Functions -------------------------------- //
+  var addClass = function(elem, accordionClass) {
+    elem.classList.add(accordionClass);
   }
 
-  function typeHandler(i) {
-    switch(settings.type) {
-      case 'animated':
-        addClass(accordionModules[i], 'accordion__module--animated');
-        accordionBtns[i].addEventListener('click', moduleHandlerAnimated.bind(this, accordionModules[i]), false);
-        break;
-      case 'no-animation':
-        addClass(accordionModules[i], 'accordion__module--no-animation');
-        accordionBtns[i].addEventListener('click', moduleHandlerNoAnimation.bind(this, accordionModules[i]), false);
-        break;
-      default:
-        console.log('Please select an animation type');
+  var isValueNumeric = function(val) {
+    return Number(val) === val;
+  };
+
+  var setTransitionSpeedIfAdded = function(elem) {
+    if (isValueNumeric(settings.speed)) {
+      elem.style.transitionDuration = settings.speed + 's';
     }
   }
 
   // -------------------- Animated Accordion -------------------------------- //
-  function moduleHandlerAnimated(accordionMod) {
+  var moduleHandlerAnimated = function(accordionMod) {
 
     var moduleMaxHeight = getModuleMaxHeight(accordionMod);
 
@@ -51,7 +47,7 @@ var accordion = function (settings) {
   }
 
   // -------------------- No animation Accordion -------------------------------- //
-  function moduleHandlerNoAnimation(accordionMod) {
+  var moduleHandlerNoAnimation = function(accordionMod) {
     if (accordionMod.style.display==='block') {
       accordionMod.style.display='none';
     } else {
@@ -59,19 +55,25 @@ var accordion = function (settings) {
     }
   }
 
-  // -------------------- Helper Functions -------------------------------- //
-  function addClass(elem, accordionClass) {
-    elem.classList.add(accordionClass);
+  // -------------------- Type Handler -------------------------------- //
+  var typeHandler = function(i) {
+    switch(settings.type) {
+      case 'animated':
+        addClass(accordionModules[i], 'accordion__module--animated');
+        accordionBtns[i].addEventListener('click', moduleHandlerAnimated.bind(this, accordionModules[i]), false);
+        break;
+      case 'no-animation':
+        addClass(accordionModules[i], 'accordion__module--no-animation');
+        accordionBtns[i].addEventListener('click', moduleHandlerNoAnimation.bind(this, accordionModules[i]), false);
+        break;
+      default:
+        console.log('Please select an animation type');
+    }
   }
 
-  function isValueNumeric(val) {
-    return Number(val) === val;
-  };
-
-  function setTransitionSpeedIfAdded(elem) {
-    if (isValueNumeric(settings.speed)) {
-      elem.style.transitionDuration = settings.speed + 's';
-    }
+  // -------------------- Init loop -------------------------------- //
+  for (var i = 0; i < accordionBtns.length; i++) {
+      typeHandler(i);
   }
 
 };
