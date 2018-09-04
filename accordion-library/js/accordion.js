@@ -6,8 +6,22 @@ var accordion = function (settings) {
 
   // -------------------- Helper Functions -------------------------------- //
   var addClass = function(elem, accordionClass) {
-    elem.classList.add(accordionClass);
+    for (var i = 0; i < accordionClass.length; i++) {
+      elem.classList.add(accordionClass[i]);
+    }
   }
+
+  var removeClass = function(elem, accordionClass) {
+    elem.classList.remove(accordionClass);
+  }
+
+  // var toggleClass = function(elem, accordionClass) {
+  //   elem.classList.toggle(accordionClass);
+  // }
+  //
+  // var containsClass = function(elem, accordionClass) {
+  //   return elem.classList.contains(accordionClass);
+  // }
 
   var isValueNumeric = function(val) {
     return Number(val) === val;
@@ -29,16 +43,19 @@ var accordion = function (settings) {
       setTransitionSpeedIfAdded(accordionMod);
       accordionMod.style.maxHeight = accordionMod.scrollHeight + 'px';
       accordionMod.addEventListener('transitionend', setOverflow, false);
-      // Set overflow to auto at the end of the expand, to add a scroll if the window is resized
+      // Set overflow to auto at the end of the expand,
+      // to add a scroll if the window is resized
       function setOverflow() {
         if(getModuleMaxHeight(accordionMod) !== 0){
-          accordionMod.style.overflow = 'auto';
+          removeClass(accordionMod, 'accordion__module--animated-collapsed');
+          addClass(accordionMod, ['accordion__module--animated-expanded']);
         }
       }
     // Collapse Module
     } else {
       accordionMod.style.maxHeight = 0;
-      accordionMod.style.overflow = 'hidden';
+      removeClass(accordionMod, 'accordion__module--animated-expanded');
+      addClass(accordionMod, ['accordion__module--animated-collapsed']);
     }
 
     function getModuleMaxHeight(accordionMod) {
@@ -48,10 +65,15 @@ var accordion = function (settings) {
 
   // -------------------- No animation Accordion -------------------------------- //
   var moduleHandlerNoAnimation = function(accordionMod) {
-    if (accordionMod.style.display==='block') {
-      accordionMod.style.display='none';
+
+    var displayValue = window.getComputedStyle(accordionMod, null).getPropertyValue('display');
+
+    if (displayValue === 'none') {
+      removeClass(accordionMod, 'accordion__module--no-animation-collapsed');
+      addClass(accordionMod, ['accordion__module--no-animation-expanded']);
     } else {
-      accordionMod.style.display='block';
+      removeClass(accordionMod, 'accordion__module--no-animation-expanded');
+      addClass(accordionMod, ['accordion__module--no-animation-collapsed']);
     }
   }
 
@@ -59,11 +81,11 @@ var accordion = function (settings) {
   var typeHandler = function(i) {
     switch(settings.type) {
       case 'animated':
-        addClass(accordionModules[i], 'accordion__module--animated');
+        addClass(accordionModules[i], ['accordion__module--animated', 'accordion__module--animated-collapsed']);
         accordionBtns[i].addEventListener('click', moduleHandlerAnimated.bind(this, accordionModules[i]), false);
         break;
       case 'no-animation':
-        addClass(accordionModules[i], 'accordion__module--no-animation');
+        addClass(accordionModules[i], ['accordion__module--no-animation-collapsed']);
         accordionBtns[i].addEventListener('click', moduleHandlerNoAnimation.bind(this, accordionModules[i]), false);
         break;
       default:
