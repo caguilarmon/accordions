@@ -79,10 +79,10 @@ h3 {
 }
 
 /* -------------------- No animation Accordion -------------------------------- */
-.accordion__module--no-animation-collapsed {
+.accordion__module--non-animated-collapsed {
   display: none;
 }
 
-.accordion__module--no-animation-expanded {
+.accordion__module--non-animated-expanded {
   display: block;
 }

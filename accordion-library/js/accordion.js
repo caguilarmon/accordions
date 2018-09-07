@@ -15,37 +15,41 @@ var accordion = function (settings) {
     elem.classList.remove(accordionClass);
   }
 
-  // var toggleClass = function(elem, accordionClass) {
-  //   elem.classList.toggle(accordionClass);
-  // }
-
-  // var containsClass = function(elem, accordionClass) {
-  //   return elem.classList.contains(accordionClass);
-  // }
-
   var isValueNumeric = function(val) {
     return Number(val) === val;
   };
-
-  var setTransitionSpeed = function(elem) {
-      elem.style.transitionDuration = settings.speed + 's';
-  }
 
   var getModuleMaxHeight = function(accordionMod) {
     return parseFloat(window.getComputedStyle(accordionMod, null).getPropertyValue('max-height'));
   }
 
-  var collapseModule = function(accordionMod) {
+  var setTransitionSpeed = function(elem) {
+      elem.style.transitionDuration = settings.speed + 's';
+  }
+
+  var collapseModuleAnimated = function(accordionMod) {
     accordionMod.style.maxHeight = 0;
     removeClass(accordionMod, 'accordion__module--animated-expanded');
     addClass(accordionMod, ['accordion__module--animated-collapsed']);
   }
 
+  var collapseModuleNonAnimated = function(accordionMod) {
+    removeClass(accordionMod, 'accordion__module--non-animated-expanded');
+    addClass(accordionMod, ['accordion__module--non-animated-collapsed']);
+  }
+
   var checkAndCollapseOtherExpandedModules = function(accordionMod) {
     for (var i = 0; i < accordionModules.length; i++) {
       if (!(accordionModules[i] === accordionMod)) {
-        if (getModuleMaxHeight(accordionModules[i]) !== 0) {
-          collapseModule(accordionModules[i]);
+        if (settings.type === 'animated') {
+          if (getModuleMaxHeight(accordionModules[i]) !== 0) {
+            collapseModuleAnimated(accordionModules[i]);
+          }
+        } else {
+          var displayValue = window.getComputedStyle(accordionModules[i], null).getPropertyValue('display');
+          if (displayValue === 'block') {
+            collapseModuleNonAnimated(accordionModules[i]);
+          }
         }
       }
     }
@@ -76,21 +80,25 @@ var accordion = function (settings) {
       }
     // Collapse Module
     } else {
-      collapseModule(accordionMod);
+      collapseModuleAnimated(accordionMod);
     }
   }
 
   // -------------------- No animation Accordion ---------------------------- //
-  var moduleHandlerNoAnimation = function(accordionMod) {
+  var moduleHandlerNonAnimated = function(accordionMod) {
 
     var displayValue = window.getComputedStyle(accordionMod, null).getPropertyValue('display');
 
+    // Expand Module
     if (displayValue === 'none') {
-      removeClass(accordionMod, 'accordion__module--no-animation-collapsed');
-      addClass(accordionMod, ['accordion__module--no-animation-expanded']);
+      if (settings.toggleOnOpen) {
+        checkAndCollapseOtherExpandedModules(accordionMod);
+      }
+      removeClass(accordionMod, 'accordion__module--non-animated-collapsed');
+      addClass(accordionMod, ['accordion__module--non-animated-expanded']);
+    // Collapse Module
     } else {
-      removeClass(accordionMod, 'accordion__module--no-animation-expanded');
-      addClass(accordionMod, ['accordion__module--no-animation-collapsed']);
+      collapseModuleNonAnimated(accordionMod);
     }
   }
 
@@ -101,9 +109,9 @@ var accordion = function (settings) {
         addClass(accordionModules[i], ['accordion__module--animated', 'accordion__module--animated-collapsed']);
         accordionBtns[i].addEventListener('click', moduleHandlerAnimated.bind(this, accordionModules[i]), false);
         break;
-      case 'no-animation':
-        addClass(accordionModules[i], ['accordion__module--no-animation-collapsed']);
-        accordionBtns[i].addEventListener('click', moduleHandlerNoAnimation.bind(this, accordionModules[i]), false);
+      case 'non-animated':
+        addClass(accordionModules[i], ['accordion__module--non-animated-collapsed']);
+        accordionBtns[i].addEventListener('click', moduleHandlerNonAnimated.bind(this, accordionModules[i]), false);
         break;
       default:
         console.log('Please select an animation type');
