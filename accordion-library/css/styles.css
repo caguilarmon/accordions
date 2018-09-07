@@ -20,7 +20,9 @@ h3 {
   margin: 0 auto;
 }
 
-.accordion__btn {
+.accordion__btn,
+.accordion__btn2,
+.accordion__btn3 {
   width: 100%;
   padding: 10px 20px;
   text-align: left;
@@ -36,21 +38,29 @@ h3 {
   background-color: #F73855;
 }
 
-.accordion__btn:nth-last-child(2) {
+.accordion__btn:nth-last-child(2),
+.accordion__btn2:nth-last-child(2),
+.accordion__btn3:nth-last-child(2) {
   border-bottom: 0px solid #555;
 }
 
-.accordion__btn:hover {
+.accordion__btn:hover,
+.accordion__btn2:hover,
+.accordion__btn3:hover {
   background-color: #F96F40;
   color: #444;
 }
 
-.accordion__btn:active {
+.accordion__btn:active,
+.accordion__btn2:active,
+.accordion__btn3:active {
   background-color: #E3653B;
   color: #222;
 }
 
-.accordion__module {
+.accordion__module,
+.accordion__module2,
+.accordion__module3 {
   padding: 0 20px;
   text-align: left;
   background-color: #ccc;

@@ -125,4 +125,6 @@ var accordion = function (settings) {
 
 };
 
-accordion({accordion__btn:'accordion__btn', accordion__module:'accordion__module', type:'animated', speed:.6, toggleOnOpen:true});
+accordion({accordion__btn:'accordion__btn', accordion__module:'accordion__module', type:'animated', speed:1, toggleOnOpen:true});
+accordion({accordion__btn:'accordion__btn2', accordion__module:'accordion__module2', type:'non-animated', speed:.8, toggleOnOpen:true});
+accordion({accordion__btn:'accordion__btn3', accordion__module:'accordion__module3', type:'animated', speed:.6, toggleOnOpen:false});
