@@ -1,3 +1,15 @@
+/**
+* Mr Accordion library - Vanilla ES5. (c) 2018 Carlos Aguilar Montoya
+* A library to create accordions with different settings.
+*
+* @param {Object} settings - Settings for the accordion
+* @param {Object} settings.accordion__btn - Html node's CSS class
+* @param {Object} settings.accordion__module - Html node's CSS class
+* @param {string} settings.type - 'animated' or 'non-animated'
+* @param {number} [settings.speed=0.4] - Speed number
+* @param {boolean} [settings.toggleOnOpen=false] - If other non clicked modules should collapse
+*/
+
 var accordion = function (settings) {
 
   /************************** Variables ***************************************/
@@ -9,7 +21,7 @@ var accordion = function (settings) {
   /**
   * Adds CSS class or classes to element
   *
-  * @param {object} elem Html node
+  * @param {Object} elem Html node
   * @param {array} accordionClass CSS class/classes
   */
   var addClass = function(elem, accordionClass) {
@@ -21,7 +33,7 @@ var accordion = function (settings) {
   /**
   * Removes CSS class from element
   *
-  * @param {object} elem Html node
+  * @param {Object} elem Html node
   * @param {string} accordionClass CSS class
   */
   var removeClass = function(elem, accordionClass) {
@@ -40,7 +52,7 @@ var accordion = function (settings) {
   /**
   * Gets the element's max-height property
   *
-  * @param {object} accordionMod Html node
+  * @param {Object} accordionMod Html node
   */
   var getModuleMaxHeight = function(accordionMod) {
     return parseFloat(window.getComputedStyle(accordionMod, null).getPropertyValue('max-height'));
@@ -58,7 +70,7 @@ var accordion = function (settings) {
   /**
   * Collapses Animated Module (Adds collapse CSS classes and properties)
   *
-  * @param {object} accordionMod Html node
+  * @param {Object} accordionMod Html node
   */
   var collapseModuleAnimated = function(accordionMod) {
     accordionMod.style.maxHeight = 0;
@@ -69,7 +81,7 @@ var accordion = function (settings) {
   /**
   * Collapses Non Animated Module (Adds collapse CSS classes)
   *
-  * @param {object} accordionMod Html node
+  * @param {Object} accordionMod Html node
   */
   var collapseModuleNonAnimated = function(accordionMod) {
     removeClass(accordionMod, 'accordion__module--non-animated-expanded');
@@ -79,7 +91,7 @@ var accordion = function (settings) {
   /**
   * Checks and collapses other expanded modules than the clicked one
   *
-  * @param {object} accordionMod Html node
+  * @param {Object} accordionMod Html node
   */
   var checkAndCollapseOtherExpandedModules = function(accordionMod) {
     for (var i = 0; i < accordionModules.length; i++) {
@@ -103,7 +115,7 @@ var accordion = function (settings) {
   /**
   * Handles the animated modules' expand and collapse overall functionality
   *
-  * @param {object} accordionMod Html node
+  * @param {Object} accordionMod Html node
   */
   var moduleHandlerAnimated = function(accordionMod) {
 
@@ -141,7 +153,7 @@ var accordion = function (settings) {
   /**
   * Handles the Non animated modules' expand and collapse overall functionality
   *
-  * @param {object} accordionMod Html node
+  * @param {Object} accordionMod Html node
   */
   var moduleHandlerNonAnimated = function(accordionMod) {
 
