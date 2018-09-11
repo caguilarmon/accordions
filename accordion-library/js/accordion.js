@@ -1,43 +1,86 @@
 var accordion = function (settings) {
 
-  // -------------------- Variables ----------------------------------------- //
+  /************************** Variables ***************************************/
   var accordionBtns = document.getElementsByClassName(settings.accordion__btn);
   var accordionModules = document.getElementsByClassName(settings.accordion__module);
 
-  // -------------------- Helper Functions ---------------------------------- //
+  /************************** Helper Functions ********************************/
+
+  /**
+  * Adds CSS class or classes to element
+  *
+  * @param {object} elem Html node
+  * @param {array} accordionClass CSS class/classes
+  */
   var addClass = function(elem, accordionClass) {
     for (var i = 0; i < accordionClass.length; i++) {
       elem.classList.add(accordionClass[i]);
     }
   }
 
+  /**
+  * Removes CSS class from element
+  *
+  * @param {object} elem Html node
+  * @param {string} accordionClass CSS class
+  */
   var removeClass = function(elem, accordionClass) {
     elem.classList.remove(accordionClass);
   }
 
+  /**
+  * Checks if input is strictly a number
+  *
+  * @param {*} val Value to check
+  */
   var isValueNumeric = function(val) {
     return Number(val) === val;
-  };
+  }
 
+  /**
+  * Gets the element's max-height property
+  *
+  * @param {object} accordionMod Html node
+  */
   var getModuleMaxHeight = function(accordionMod) {
     return parseFloat(window.getComputedStyle(accordionMod, null).getPropertyValue('max-height'));
   }
 
+  /**
+  * Sets the transition speed for the element parameter
+  *
+  * @param {number} elem Html node
+  */
   var setTransitionSpeed = function(elem) {
       elem.style.transitionDuration = settings.speed + 's';
   }
 
+  /**
+  * Collapses Animated Module (Adds collapse CSS classes and properties)
+  *
+  * @param {object} accordionMod Html node
+  */
   var collapseModuleAnimated = function(accordionMod) {
     accordionMod.style.maxHeight = 0;
     removeClass(accordionMod, 'accordion__module--animated-expanded');
     addClass(accordionMod, ['accordion__module--animated-collapsed']);
   }
 
+  /**
+  * Collapses Non Animated Module (Adds collapse CSS classes)
+  *
+  * @param {object} accordionMod Html node
+  */
   var collapseModuleNonAnimated = function(accordionMod) {
     removeClass(accordionMod, 'accordion__module--non-animated-expanded');
     addClass(accordionMod, ['accordion__module--non-animated-collapsed']);
   }
 
+  /**
+  * Checks and collapses other expanded modules than the clicked one
+  *
+  * @param {object} accordionMod Html node
+  */
   var checkAndCollapseOtherExpandedModules = function(accordionMod) {
     for (var i = 0; i < accordionModules.length; i++) {
       if (!(accordionModules[i] === accordionMod)) {
@@ -55,12 +98,19 @@ var accordion = function (settings) {
     }
   }
 
-  // -------------------- Animated Accordion -------------------------------- //
+  /************************** Animated Accordion ******************************/
+
+  /**
+  * Handles the animated modules' expand and collapse overall functionality
+  *
+  * @param {object} accordionMod Html node
+  */
   var moduleHandlerAnimated = function(accordionMod) {
 
     var moduleMaxHeight = getModuleMaxHeight(accordionMod);
 
-    // Expand Module
+    /* Expands Module
+    */
     if (moduleMaxHeight === 0){
       if (settings.toggleOnOpen) {
         checkAndCollapseOtherExpandedModules(accordionMod);
@@ -70,39 +120,57 @@ var accordion = function (settings) {
       }
       accordionMod.style.maxHeight = accordionMod.scrollHeight + 'px';
       accordionMod.addEventListener('transitionend', isModuleExpanded, false);
-      // Set overflow to auto at the end of the expand,
-      // to add a scroll if the window is resized
+      /* Set overflow to auto at the end of the expand,
+      * to add a scroll if the window is resized
+      */
       function isModuleExpanded() {
         if(getModuleMaxHeight(accordionMod) !== 0){
           removeClass(accordionMod, 'accordion__module--animated-collapsed');
           addClass(accordionMod, ['accordion__module--animated-expanded']);
         }
       }
-    // Collapse Module
+    /* Collapses Module
+    */
     } else {
       collapseModuleAnimated(accordionMod);
     }
   }
 
-  // -------------------- No animation Accordion ---------------------------- //
+  /************************** Non Animated Accordion **************************/
+
+  /**
+  * Handles the Non animated modules' expand and collapse overall functionality
+  *
+  * @param {object} accordionMod Html node
+  */
   var moduleHandlerNonAnimated = function(accordionMod) {
 
     var displayValue = window.getComputedStyle(accordionMod, null).getPropertyValue('display');
 
-    // Expand Module
+    /* Expands Module
+    */
     if (displayValue === 'none') {
       if (settings.toggleOnOpen) {
         checkAndCollapseOtherExpandedModules(accordionMod);
       }
       removeClass(accordionMod, 'accordion__module--non-animated-collapsed');
       addClass(accordionMod, ['accordion__module--non-animated-expanded']);
-    // Collapse Module
+      /* Collapses Module
+      */
     } else {
       collapseModuleNonAnimated(accordionMod);
     }
   }
 
-  // -------------------- Type Handler -------------------------------------- //
+  /************************** Type Handler ************************************/
+
+  /**
+  * Handles the type of accordion from the settings type when initialized, can be
+  * Animated or Non Animated.
+  * Adds the proper CSS classes and listeners.
+  *
+  * @param {number} i Index for accordion modules
+  */
   var typeHandler = function(i) {
     switch(settings.type) {
       case 'animated':
@@ -118,7 +186,11 @@ var accordion = function (settings) {
     }
   }
 
-  // -------------------- Init loop ----------------------------------------- //
+  /************************** Init loop ***************************************/
+
+  /**
+  * Init loop to go through all the accordions buttons/modules
+  */
   for (var i = 0; i < accordionBtns.length; i++) {
       typeHandler(i);
   }
