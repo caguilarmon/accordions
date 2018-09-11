@@ -1,1 +1,1 @@
-Accordions with Javascript
+Mr Accordion - Vanilla ES5
