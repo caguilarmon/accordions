@@ -1,9 +1,12 @@
-## Mr Accordion library - Vanilla ES5
+Mr Accordion library - Vanilla ES5
+======
 
-### What is Mr-Accordion?
+What is Mr-Accordion?
+------
 Mr Accordion is a vanilla ES5 library to create accordions with different settings such as animated, non animated, speed, toggle on/off other open modules.
 
-### Operating instructions
+Operating instructions
+------
 **You need to pass the following required settings when initializing it:**
 1. @param {Object} settings.accordion__btn - Html tag's CSS class
 2. @param {Object} settings.accordion__module - Html tag's CSS class
@@ -18,7 +21,8 @@ Mr Accordion is a vanilla ES5 library to create accordions with different settin
 accordion({accordion__btn:'accordion__btn', accordion__module:'accordion__module', type:'animated', speed:1, toggleOnOpen:true});
 ```
 
-### Directory Layout
+Directory Layout
+------
 ```
 ├── /src/                       # The source code for Mr Accordion
 │   ├── /css/                   # The styles used to animate the accordion
@@ -31,9 +35,11 @@ accordion({accordion__btn:'accordion__btn', accordion__module:'accordion__module
 └── README.md                   # Information about Mr Accordion
 ```
 
-### Author
+Author
+------
 **Carlos Aguilar Montoya**
  * github.com/caguilarmon
 
-### Copyright and licensing information
+Copyright and licensing information
+------
 Copyright (c) 2018 Carlos Aguilar Montoya Released under the MIT license
