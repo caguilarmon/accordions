@@ -34,7 +34,7 @@ Directory Layout
 ├── /test/                      # Contains a sample accordion in use
 │   ├── /css/                   # The styles for the sample accordion
 │   ├── /js/                    # JS initialization sample for the accordion
-│   └── /index/                 # The accordion index file
+│   └── index.html              # The accordion index file
 │── .gitignore                  # Git ignore rules
 └── README.md                   # Information about Mr Accordion
 ```
