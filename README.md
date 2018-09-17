@@ -1,3 +1,3 @@
-Mr Accordion - Vanilla ES5
+#Mr Accordion library - Vanilla ES5. (c) 2018 Carlos Aguilar Montoya
 
-// Documentation in progress!
+##Mr Accordion library  is a library to create animated or non animated accordions with different settings.
