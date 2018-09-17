@@ -42,7 +42,7 @@ Directory Layout
 Author
 ------
 **Carlos Aguilar Montoya**
- * github.com/caguilarmon
+ * [github.com/caguilarmon](https://github.com/caguilarmon)
 
 Copyright and licensing information
 ------
