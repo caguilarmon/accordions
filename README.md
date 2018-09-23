@@ -7,18 +7,22 @@ Mr Accordion is a vanilla ES5 library to create accordions with custom settings 
 
 Operating instructions
 ------
-**You need to pass the following required settings when initializing it:**
-```
-1. @param {Object} settings.accordion__btn - Html tag's CSS class
-2. @param {Object} settings.accordion__module - Html tag's CSS class
-3. @param {string} settings.type - 'animated' or 'non-animated'
-```
+**You need to pass the following required parameters when initializing it:**
 
-**There are also a couple of optional settings:**
-```
-1. @param {number} [settings.speed=0.4] - Speed number
-2. @param {boolean} [settings.toggleOnOpen=false] - If other non clicked modules should collapse
-```
+|Name                       |Type   |Description                 |
+|---------------------------|-------|----------------------------|
+|settings.accordion__btn    |Object |Html tag's CSS class        |
+|settings.accordion__module |Object |Html tag's CSS class        |
+|settings.type              |string |'animated' or 'non-animated'|
+
+
+**There are also a couple of optional parameters:**
+
+|Name                  |Type    |Description                 |
+|----------------------|--------|----------------------------|
+|settings.speed        |number  |Speed number - Default=0,4        |
+|settings.toggleOnOpen |boolean |If other non clicked modules should collapse - Default=false |
+
 
 **Sample initialization:**
 ```javascript
