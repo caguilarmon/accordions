@@ -1,9 +1,9 @@
-Mr Accordion library - Vanilla ES5
+Mr Accordion library
 ======
 
 What is Mr-Accordion?
 ------
-Mr Accordion is a vanilla ES5 library to create accordions with different settings such as animated, non animated, speed, toggle on/off other open modules.
+Mr Accordion is a vanilla ES5 library to create accordions with custom settings such as animated, non animated, speed, toggle on/off other open modules.
 
 Operating instructions
 ------
