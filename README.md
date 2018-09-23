@@ -7,7 +7,7 @@ Mr Accordion is a vanilla ES5 library to create accordions with custom settings 
 
 Operating instructions
 ------
-**You need to pass the following required parameters when initializing it:**
+**Required parameters**
 
 |Name                       |Type   |Description                 |
 |---------------------------|-------|----------------------------|
@@ -16,7 +16,7 @@ Operating instructions
 |settings.type              |string |'animated' or 'non-animated'|
 
 
-**There are also a couple of optional parameters:**
+**Optional parameters**
 
 |Name                  |Type    |Description                 |
 |----------------------|--------|----------------------------|
