@@ -15,7 +15,6 @@ var accordion = function (settings) {
   var accordionBtns = document.getElementsByClassName(settings.accordion__btn);
   var accordionModules = document.getElementsByClassName(settings.accordion__module);
 
-
   /**
   * Adds CSS class or classes to element
   *
@@ -108,7 +107,6 @@ var accordion = function (settings) {
     }
   }
 
-
   /**
   * Handles the animated modules' expand and collapse overall functionality
   *
@@ -145,7 +143,6 @@ var accordion = function (settings) {
     }
   }
 
-
   /**
   * Handles the Non animated modules' expand and collapse overall functionality
   *
@@ -170,7 +167,6 @@ var accordion = function (settings) {
     }
   }
 
-
   /**
   * Handles the type of accordion from the settings type when initialized, can be
   * Animated or Non Animated.
@@ -192,7 +188,6 @@ var accordion = function (settings) {
         console.log('Please select an animation type');
     }
   }
-
 
   /**
   * Init loop to go through all the accordions buttons/modules
