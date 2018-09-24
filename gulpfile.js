@@ -7,23 +7,21 @@ var rename = require('gulp-rename');
 
 
 gulp.task('minifyStyles', function() {
-  return gulp.src('./src/css/*.css')
-  .pipe(gulp.dest('./src/css'))
+  return gulp.src('./src/css/mr-accordion-styles.css')
   .pipe(csso())
   .pipe(rename({ extname: '.min.css'}))
   .pipe(gulp.dest('./src/css'))
 });
 
 gulp.task('minifyScripts', function() {
-  return gulp.src('./src/js/*.js')
-  .pipe(gulp.dest('./src/js'))
+  return gulp.src('./src/js/mr-accordion.js')
   .pipe(uglify())
   .pipe(rename({ extname: '.min.js' }))
   .pipe(gulp.dest('./src/js'))
 });
 
 gulp.task('clean', function() {
-  del(['src/css/mr-accordion-styles.min.css', 'src/js/mr-accordion.min.js'])
+  del(['./src/css/*.min.css', './src/js/*.min.js'])
 });
 
 gulp.task('default', ['clean'], function() {
