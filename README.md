@@ -5,6 +5,8 @@ What is Mr-Accordion?
 ------
 Mr Accordion is a vanilla ES5 library to create accordions with custom settings such as animated, non animated, speed, toggle on/off other open modules.
 
+[Click here for a live preview.](https://caguilarmon.github.io/mr-accordion/test/)
+
 Operating instructions
 ------
 **Parameters**
