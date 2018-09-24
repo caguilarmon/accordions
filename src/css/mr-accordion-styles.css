@@ -1,4 +1,5 @@
-/********************** Animated Accordion ************************************/
+
+/*- Animated Accordion -*/
 .accordion__module--animated {
   max-height: 0;
   transition: max-height 0.4s ease-in-out;
@@ -12,7 +13,7 @@
   overflow: hidden;
 }
 
-/********************** Non Animated Accordion ********************************/
+/*- Non Animated Accordion -*/
 .accordion__module--non-animated-collapsed {
   display: none;
 }

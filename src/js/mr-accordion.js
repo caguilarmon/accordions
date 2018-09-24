@@ -12,11 +12,9 @@
 
 var accordion = function (settings) {
 
-  /************************** Variables ***************************************/
   var accordionBtns = document.getElementsByClassName(settings.accordion__btn);
   var accordionModules = document.getElementsByClassName(settings.accordion__module);
 
-  /************************** Helper Functions ********************************/
 
   /**
   * Adds CSS class or classes to element
@@ -110,7 +108,6 @@ var accordion = function (settings) {
     }
   }
 
-  /************************** Animated Accordion ******************************/
 
   /**
   * Handles the animated modules' expand and collapse overall functionality
@@ -148,7 +145,6 @@ var accordion = function (settings) {
     }
   }
 
-  /************************** Non Animated Accordion **************************/
 
   /**
   * Handles the Non animated modules' expand and collapse overall functionality
@@ -174,7 +170,6 @@ var accordion = function (settings) {
     }
   }
 
-  /************************** Type Handler ************************************/
 
   /**
   * Handles the type of accordion from the settings type when initialized, can be
@@ -198,7 +193,6 @@ var accordion = function (settings) {
     }
   }
 
-  /************************** Init loop ***************************************/
 
   /**
   * Init loop to go through all the accordions buttons/modules

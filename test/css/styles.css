@@ -1,4 +1,4 @@
-/***************** Tags *****************/
+/*- Tags -*/
 body {
   background-color: #999;
   font: 13px/20px Helvetica, Arial, sans-serif;
@@ -13,7 +13,7 @@ h3 {
   font-size: 14px;
 }
 
-/***************** Classes *****************/
+/*- Classes -*/
 .accordion {
   width: 90%;
   border: 2px solid #555;
