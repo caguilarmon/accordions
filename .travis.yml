@@ -9,7 +9,7 @@ script:
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: mr-accordion-key  # Set in the settings page of your repository, as a secure variable
+  github-token: mraccordionkey  # Set in the settings page of your repository, as a secure variable
   keep-history: true
   on:
     branch: master
