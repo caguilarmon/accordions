@@ -8,7 +8,6 @@
   },
   "scripts": {
     "test": "eslint .",
-    "test:lint:fix": "eslint . --fix",
     "minify": "gulp"
   },
   "repository": {
