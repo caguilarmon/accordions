@@ -47,7 +47,7 @@ var accordion = function (settings) {
   }
 
   /**
-  * Gets the element's max-height property
+  * Gets the elements' max-height property
   *
   * @param {Object} accordionMod - Html tag
   */
