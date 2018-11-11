@@ -20,12 +20,21 @@ gulp.task('minifyScripts', function() {
   .pipe(gulp.dest('./src/js'))
 });
 
+gulp.task('copy:vendorjs', function() {
+  return gulp.src('./node_modules/jquery/dist/jquery.min.js')
+  .pipe(gulp.dest('./src/js/vendor'))
+});
+
 gulp.task('clean', function() {
-  del(['./src/css/*.min.css', './src/js/*.min.js'])
+  del(['./src/css/*.min.css',
+        './src/js/*.min.js',
+        './src/js/vendor/**/*'
+  ])
 });
 
 gulp.task('default', ['clean'], function() {
   runSequence(
+    'copy:vendorjs',
     'minifyStyles',
     'minifyScripts'
   )

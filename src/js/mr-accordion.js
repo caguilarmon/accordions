@@ -158,7 +158,6 @@ var accordion = function (settings) {
         $(accordionModules[i]).addClass('accordion__module--animated accordion__module--animated-collapsed');
         $(accordionBtns[i]).click(function(event) {
           moduleHandlerAnimated(accordionModules[i]);
-          // console.log($(this).next()) // moduleHandlerAnimated($(this).next());
         });
         break;
       case 'non-animated':
